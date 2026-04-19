@@ -1,0 +1,22 @@
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class QuizServlet extends HttpServlet {
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String answer = request.getParameter("q1");
+
+        int score = 0;
+        if ("Kotlin".equals(answer)) {
+            score = 1;
+        }
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        out.println("<h2>Your Score: " + score + "</h2>");
+    }
+}
